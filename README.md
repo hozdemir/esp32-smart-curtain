@@ -4,7 +4,7 @@ Zigbee-controlled motorized curtain firmware for the Seeed XIAO ESP32, exposed a
 
 ## Design
 
-The firmware is split into small, independently testable layers rather than one big loop:
+The firmware is split into small layers behind interfaces rather than one big loop, so hardware-facing parts can be swapped without touching the control logic (the position sensor is already simulated this way):
 
 - **`app/CurtainController`** — the state machine (open/close/stop/move-to-position), driven purely by a motor interface and a position-sensor interface. It has no idea whether the motor or sensor are real or simulated.
 - **`motor/IMotorDriver`** / **`motor/GpioMotorDriver`** — drives a DRV8833 H-bridge over GPIO (XIAO D1/D2 for direction, D3 for sleep/standby).
