@@ -1,5 +1,11 @@
+# ESP-IDF build output
 build/
 managed_components/
+
+# Local menuconfig backups (sdkconfig.defaults holds the versioned defaults)
+sdkconfig.old
+
+# Editor and OS files
+.vscode/
 .idea/
 .DS_Store
-sdkconfig.old
